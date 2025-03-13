@@ -77,15 +77,19 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // FormCadastroContato
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(pictureBox1);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
-            Name = "FormCadastroContato";
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCadastroContato";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

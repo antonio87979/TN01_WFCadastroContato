@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastroContato));
             lblNome = new Label();
             lblSobreNome = new Label();
             lblTelefone = new Label();
@@ -51,42 +52,47 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
+            lblNome.BackColor = Color.Transparent;
             lblNome.Location = new Point(35, 33);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(43, 15);
+            lblNome.Size = new Size(44, 15);
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome:";
             // 
             // lblSobreNome
             // 
             lblSobreNome.AutoSize = true;
+            lblSobreNome.BackColor = Color.Transparent;
             lblSobreNome.Location = new Point(233, 33);
             lblSobreNome.Name = "lblSobreNome";
-            lblSobreNome.Size = new Size(76, 15);
+            lblSobreNome.Size = new Size(80, 15);
             lblSobreNome.TabIndex = 1;
             lblSobreNome.Text = "Sobre Nome:";
             // 
             // lblTelefone
             // 
             lblTelefone.AutoSize = true;
+            lblTelefone.BackColor = Color.Transparent;
             lblTelefone.Location = new Point(35, 111);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(83, 15);
+            lblTelefone.Size = new Size(91, 15);
             lblTelefone.TabIndex = 2;
             lblTelefone.Text = "DDD/Telefone:";
             // 
             // lblTipoTelefone
             // 
             lblTipoTelefone.AutoSize = true;
-            lblTipoTelefone.Location = new Point(195, 111);
+            lblTipoTelefone.BackColor = Color.Transparent;
+            lblTipoTelefone.Location = new Point(6, 0);
             lblTipoTelefone.Name = "lblTipoTelefone";
-            lblTipoTelefone.Size = new Size(80, 15);
+            lblTipoTelefone.Size = new Size(86, 15);
             lblTipoTelefone.TabIndex = 3;
             lblTipoTelefone.Text = "Tipo Telefone:";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
+            lblEmail.BackColor = Color.Transparent;
             lblEmail.Location = new Point(35, 203);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(39, 15);
@@ -98,7 +104,7 @@
             btnSalvar.Location = new Point(363, 278);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
-            btnSalvar.TabIndex = 5;
+            btnSalvar.TabIndex = 6;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
@@ -108,14 +114,14 @@
             txtNome.Location = new Point(35, 51);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(161, 23);
-            txtNome.TabIndex = 6;
+            txtNome.TabIndex = 1;
             // 
             // txtSobreNome
             // 
             txtSobreNome.Location = new Point(233, 51);
             txtSobreNome.Name = "txtSobreNome";
             txtSobreNome.Size = new Size(256, 23);
-            txtSobreNome.TabIndex = 7;
+            txtSobreNome.TabIndex = 2;
             // 
             // mkdTelefone
             // 
@@ -123,27 +129,28 @@
             mkdTelefone.Mask = "(99) 00000-0000";
             mkdTelefone.Name = "mkdTelefone";
             mkdTelefone.Size = new Size(125, 23);
-            mkdTelefone.TabIndex = 8;
+            mkdTelefone.TabIndex = 3;
             mkdTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // rdbPessoal
             // 
             rdbPessoal.AutoSize = true;
-            rdbPessoal.Location = new Point(0, 4);
+            rdbPessoal.Location = new Point(6, 16);
             rdbPessoal.Name = "rdbPessoal";
-            rdbPessoal.Size = new Size(64, 19);
-            rdbPessoal.TabIndex = 9;
+            rdbPessoal.Size = new Size(65, 19);
+            rdbPessoal.TabIndex = 0;
             rdbPessoal.TabStop = true;
             rdbPessoal.Text = "Pessoal";
             rdbPessoal.UseVisualStyleBackColor = true;
+            rdbPessoal.CheckedChanged += rdbPessoal_CheckedChanged;
             // 
             // rdbComercial
             // 
             rdbComercial.AutoSize = true;
-            rdbComercial.Location = new Point(100, 4);
+            rdbComercial.Location = new Point(89, 16);
             rdbComercial.Name = "rdbComercial";
-            rdbComercial.Size = new Size(79, 19);
-            rdbComercial.TabIndex = 10;
+            rdbComercial.Size = new Size(80, 19);
+            rdbComercial.TabIndex = 1;
             rdbComercial.TabStop = true;
             rdbComercial.Text = "Comercial";
             rdbComercial.UseVisualStyleBackColor = true;
@@ -151,10 +158,10 @@
             // rdbRecado
             // 
             rdbRecado.AutoSize = true;
-            rdbRecado.Location = new Point(196, 4);
+            rdbRecado.Location = new Point(187, 16);
             rdbRecado.Name = "rdbRecado";
-            rdbRecado.Size = new Size(64, 19);
-            rdbRecado.TabIndex = 11;
+            rdbRecado.Size = new Size(66, 19);
+            rdbRecado.TabIndex = 2;
             rdbRecado.TabStop = true;
             rdbRecado.Text = "Recado";
             rdbRecado.UseVisualStyleBackColor = true;
@@ -164,10 +171,11 @@
             txtEmail.Location = new Point(35, 221);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(454, 23);
-            txtEmail.TabIndex = 13;
+            txtEmail.TabIndex = 5;
             // 
             // lblLinha
             // 
+            lblLinha.BackColor = SystemColors.ControlText;
             lblLinha.BorderStyle = BorderStyle.Fixed3D;
             lblLinha.Location = new Point(35, 92);
             lblLinha.Name = "lblLinha";
@@ -176,7 +184,9 @@
             // 
             // lblLinha2
             // 
+            lblLinha2.BackColor = SystemColors.ActiveCaptionText;
             lblLinha2.BorderStyle = BorderStyle.Fixed3D;
+            lblLinha2.ForeColor = SystemColors.ActiveCaptionText;
             lblLinha2.Location = new Point(35, 174);
             lblLinha2.Name = "lblLinha2";
             lblLinha2.Size = new Size(450, 1);
@@ -184,13 +194,16 @@
             // 
             // gbxTipoTelefone
             // 
+            gbxTipoTelefone.BackColor = Color.Transparent;
             gbxTipoTelefone.Controls.Add(rdbPessoal);
             gbxTipoTelefone.Controls.Add(rdbComercial);
             gbxTipoTelefone.Controls.Add(rdbRecado);
-            gbxTipoTelefone.Location = new Point(195, 129);
+            gbxTipoTelefone.Controls.Add(lblTipoTelefone);
+            gbxTipoTelefone.ForeColor = SystemColors.ActiveCaptionText;
+            gbxTipoTelefone.Location = new Point(189, 111);
             gbxTipoTelefone.Name = "gbxTipoTelefone";
-            gbxTipoTelefone.Size = new Size(290, 23);
-            gbxTipoTelefone.TabIndex = 16;
+            gbxTipoTelefone.Size = new Size(296, 41);
+            gbxTipoTelefone.TabIndex = 4;
             gbxTipoTelefone.TabStop = false;
             // 
             // btnVoltar
@@ -198,7 +211,7 @@
             btnVoltar.Location = new Point(269, 278);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(75, 23);
-            btnVoltar.TabIndex = 17;
+            btnVoltar.TabIndex = 7;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
@@ -207,12 +220,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(516, 323);
             Controls.Add(btnVoltar);
             Controls.Add(gbxTipoTelefone);
             Controls.Add(lblLinha2);
             Controls.Add(lblLinha);
-            Controls.Add(lblTipoTelefone);
             Controls.Add(txtEmail);
             Controls.Add(mkdTelefone);
             Controls.Add(txtSobreNome);
@@ -222,7 +236,13 @@
             Controls.Add(lblTelefone);
             Controls.Add(lblSobreNome);
             Controls.Add(lblNome);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ForeColor = SystemColors.ActiveCaptionText;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormCadastroContato";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             gbxTipoTelefone.ResumeLayout(false);
             gbxTipoTelefone.PerformLayout();

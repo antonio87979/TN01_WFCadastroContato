@@ -19,7 +19,7 @@ namespace TN01_WFCadastroContato
 
         private void mnsCadastro_Click(object sender, EventArgs e)
         {
-            FormMain form = new FormMain();
+            FormCadastroContato form = new FormCadastroContato();
             form.ShowDialog();
         }
 

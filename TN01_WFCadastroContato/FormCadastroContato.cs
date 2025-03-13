@@ -6,6 +6,23 @@ namespace TN01_WFCadastroContato
         {
             InitializeComponent();
         }
+        private void LimparFormulario()
+        {
+            txtNome.Clear();
+
+            txtSobreNome.Clear();
+
+            mkdTelefone.Clear();
+
+            rdbComercial.Checked = false;
+
+            rdbPessoal.Checked = false;
+
+            rdbRecado.Checked = false;
+
+            txtEmail.Clear();
+
+        }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -50,11 +67,20 @@ namespace TN01_WFCadastroContato
                     MessageBoxIcon.Information);
             }
 
+            LimparFormulario();
+
         }
+
+       
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rdbPessoal_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
