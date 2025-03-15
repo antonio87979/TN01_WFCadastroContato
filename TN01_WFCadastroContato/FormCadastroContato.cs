@@ -6,6 +6,17 @@ namespace TN01_WFCadastroContato
         {
             InitializeComponent();
         }
+
+        public void Erro(string mensagem)
+        {
+            MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void Sucesso(string mensagem)
+        {
+            MessageBox.Show(mensagem, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void LimparFormulario()
         {
             txtNome.Clear();
@@ -26,46 +37,78 @@ namespace TN01_WFCadastroContato
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            string nome = txtNome.Text;
-            string sobrenome = txtSobreNome.Text;
-            string telefone = mkdTelefone.Text;
-            string tipotelefone = "";
-            string email = txtEmail.Text;
+            string semMaskTelefone = mkdTelefone.Text
+                .Replace("(", "")
+                .Replace(")", "")
+                .Replace(" ", "")
+                .Replace("-", "");
 
-            if (rdbPessoal.Checked)
+            //Verifica Nome Vazio
+            if (string.IsNullOrEmpty(txtNome.Text))
             {
-                tipotelefone = "Pessoal";
+                Erro("Campo Nome não pode estar Vazio!");
+                return;
             }
-            else if (rdbComercial.Checked)
+            //Verifica SobreNome Vazio
+            else if (string.IsNullOrEmpty(txtSobreNome.Text))
             {
-                tipotelefone = "Comercial";
+                Erro("Campo Sobrenome não pode estar Vazio!");
+                return;
             }
-            else if (rdbRecado.Checked)
+            //Verifica DDD e o Telefone Vazios
+            else if (string.IsNullOrEmpty(semMaskTelefone))
             {
-                tipotelefone = "Recado";
+                Erro("Campo Telefone não pode estar Vazio!");
+                return;
             }
-            else
+            //Verifica Email Vazios
+            else if (string.IsNullOrEmpty(txtEmail.Text))
             {
-                MessageBox.Show("O tipo de telefone não foi definido!");
+                Erro("Campo Email não pode estar Vazio!");
                 return;
             }
 
-            if (mkdTelefone.Text == "" || txtEmail.Text == "" || txtSobreNome.Text == "" || txtNome.Text == "")
+            ETipoTelefone tipoTelefone;
+            //Se todos os radios estão desmarcados
+            if (!rdbComercial.Checked && !rdbPessoal.Checked && !rdbRecado.Checked)
             {
-                MessageBox.Show("Preencha todos os campos",
-                    "erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
+                Erro("Deve-se marcar uma opção de Tipo de Telefone!");
                 return;
             }
             else
             {
-
-                MessageBox.Show("Cadastro realizado com sucesso",
-                    "info",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                if (rdbComercial.Checked)
+                    tipoTelefone = ETipoTelefone.Comercial;
+                else if (rdbPessoal.Checked)
+                    tipoTelefone = ETipoTelefone.Pessoal;
+                else
+                    tipoTelefone = ETipoTelefone.Recado;
             }
+
+            Contato c1 = new Contato();
+            c1.Codigo = 0;
+            c1.Nome = txtNome.Text;
+            c1.SobreNome = txtSobreNome.Text;
+            c1.Email = txtEmail.Text;
+            c1.TipoTelefone = tipoTelefone;
+
+            // Usou a Propriedade (Exclude Prompt Literals)
+            //1 1 9 8 7 6 5 4 3 2 1  //Caracteres
+            //0 1 2 3 4 5 6 7 8 9 10 //Index(posição)
+
+            c1.Ddd = mkdTelefone.Text.Substring(0, 2);
+            c1.telefone = mkdTelefone.Text.Substring(2);
+
+            // Não Usou a Propriedade (Exclude Prompt Literals)
+            // E limpou os caracteres com o .Replace()
+            //1 1 9 8 7 6 5 4 3 2 1  //Caracteres
+            //0 1 2 3 4 5 6 7 8 9 10 //Index(posição)
+            c1.Ddd = semMaskTelefone.Substring(0, 2);
+            c1.telefone = semMaskTelefone.Substring(2);
+
+            Contato.ListaContatos.Add(c1);
+
+            Sucesso("Cadastrado com Sucesso!");
 
             LimparFormulario();
 

@@ -17,9 +17,9 @@ namespace TN01_WFCadastroContato
             InitializeComponent();
         }
 
-        private void dgvListaContatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void FormListagem_Load(object sender, EventArgs e)
         {
-            dgvListaContatos.DataSource = ClassContato.ListaContatos;
+            dgvListaContatos.DataSource = Contato.ListaContatos;
         }
     }
 }

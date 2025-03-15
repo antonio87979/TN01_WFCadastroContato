@@ -12,9 +12,9 @@ namespace TN01_WFCadastroContato
         Comercial,
         Recado
     }
-    class ClassContato
+    class Contato
     {
-        public ClassContato(int codigo, string? nome, string? sobreNome, string? ddd, string? telefone, ETipoTelefone tipoTelefone, string? email)
+        public Contato(int codigo, string? nome, string? sobreNome, string? ddd, string? telefone, ETipoTelefone tipoTelefone, string? email)
         {
             Codigo = codigo;
             Nome = nome;
@@ -25,9 +25,9 @@ namespace TN01_WFCadastroContato
             Email = email;
         }
 
-        public ClassContato() { }
+        public Contato() { }
 
-        public static List<ClassContato> ListaContatos = new List<ClassContato>();
+        public static List<Contato> ListaContatos = new List<Contato>();
         public int Codigo { get; set; }
         public string? Nome { get; set; }
         public string? SobreNome { get; set; }
